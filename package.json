@@ -1,0 +1,23 @@
+{
+  "name": "twillo-callbot-tauri",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tauri dev",
+    "dev:attach": "tauri dev --config '{\"build\":{\"beforeDevCommand\":\"true\"}}'",
+    "dev:3101": "TWILLO_FRONT_PORT=3101 tauri dev --config '{\"build\":{\"beforeDevCommand\":\"node scripts/start-front-if-needed.mjs\",\"devUrl\":\"http://localhost:3101\"}}'",
+    "dev:attach:3101": "tauri dev --config '{\"build\":{\"beforeDevCommand\":\"true\",\"devUrl\":\"http://localhost:3101\"}}'",
+    "build": "tauri build",
+    "tauri": "tauri",
+    "front:dev": "npm --prefix ../twillo-callbot-front run dev",
+    "front:build": "npm --prefix ../twillo-callbot-front run build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.5.0"
+  },
+  "dependencies": {
+    "@tauri-apps/plugin-process": "^2.3.1",
+    "@tauri-apps/plugin-updater": "^2.10.1"
+  }
+}
