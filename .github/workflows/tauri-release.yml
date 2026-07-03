@@ -49,10 +49,19 @@ jobs:
         working-directory: twillo-callbot-front
         run: npm ci
 
+      - name: Install tauri deps
+        run: npm ci
+
       # 로컬과 동일한 경로 구조 (../twillo-callbot-front) 를 만들어서
       # tauri.conf.json의 beforeBuildCommand/frontendDist 변경 없이 빌드
-      - name: Symlink frontend as sibling
+      - name: Symlink frontend as sibling (macOS)
+        if: runner.os != 'Windows'
         run: ln -s "$GITHUB_WORKSPACE/twillo-callbot-front" ../twillo-callbot-front
+
+      - name: Symlink frontend as sibling (Windows)
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: mklink /D "..\twillo-callbot-front" "%GITHUB_WORKSPACE%\twillo-callbot-front"
 
       - name: Build & publish
         uses: tauri-apps/tauri-action@v0
