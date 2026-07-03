@@ -24,12 +24,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 프론트 프로젝트를 형제 디렉토리에 체크아웃 (beforeBuildCommand 가 ../twillo-callbot-front 참조)
       - name: Checkout frontend
         uses: actions/checkout@v4
         with:
           repository: dota-pilot1/twillo-callbot-front
-          path: ../twillo-callbot-front
+          path: twillo-callbot-front
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -47,8 +46,13 @@ jobs:
           workspaces: src-tauri
 
       - name: Install frontend deps
-        working-directory: ../twillo-callbot-front
+        working-directory: twillo-callbot-front
         run: npm ci
+
+      # 로컬과 동일한 경로 구조 (../twillo-callbot-front) 를 만들어서
+      # tauri.conf.json의 beforeBuildCommand/frontendDist 변경 없이 빌드
+      - name: Symlink frontend as sibling
+        run: ln -s "$GITHUB_WORKSPACE/twillo-callbot-front" ../twillo-callbot-front
 
       - name: Build & publish
         uses: tauri-apps/tauri-action@v0
