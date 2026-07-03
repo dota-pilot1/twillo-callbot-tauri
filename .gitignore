@@ -2,3 +2,6 @@ node_modules
 src-tauri/target
 dist
 .DS_Store
+
+# 배포 시크릿 (절대 커밋 금지)
+배포 가이드/.local-secrets/
