@@ -75,7 +75,7 @@ gh secret set APPLE_CERTIFICATE_PASSWORD --repo $REPO < "$SECRETS_DIR/apple_cert
 
 # apple-credentials.txt 에서 나머지 4개 값 복사
 gh secret set APPLE_SIGNING_IDENTITY --repo $REPO --body "Developer ID Application: Hyunseok oh (5PRM3RRTSH)"
-gh secret set APPLE_ID --repo $REPO --body "terecal@daum.net"
+gh secret set APPLE_ID --repo $REPO --body "<Apple 계정 이메일>"
 gh secret set APPLE_PASSWORD --repo $REPO --body "<App-Specific Password>"
 gh secret set APPLE_TEAM_ID --repo $REPO --body "5PRM3RRTSH"
 ```
