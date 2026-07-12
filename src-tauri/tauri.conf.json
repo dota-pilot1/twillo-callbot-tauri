@@ -1,11 +1,11 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Twillo Callbot",
-  "version": "0.1.1",
+  "productName": "Twillo Clinic Console",
+  "version": "0.1.2",
   "identifier": "com.twillo-callbot.desktop",
   "build": {
     "beforeDevCommand": "node scripts/start-front-if-needed.mjs",
-    "devUrl": "http://localhost:3200",
+    "devUrl": "http://localhost:3200/softphone",
     "beforeBuildCommand": "npm --prefix ../twillo-callbot-front run build",
     "frontendDist": "../../twillo-callbot-front/out"
   },
@@ -33,7 +33,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "Twillo Callbot",
+        "title": "Twillo Clinic Console",
         "width": 1280,
         "height": 820,
         "minWidth": 1080,

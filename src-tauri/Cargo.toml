@@ -1,7 +1,7 @@
 [package]
 name = "twillo-callbot-tauri"
-version = "0.1.0"
-description = "Twillo Callbot 상담원 데스크톱 앱"
+version = "0.1.2"
+description = "Twillo Clinic 운영 콘솔 데스크톱 앱"
 authors = ["terecal"]
 edition = "2021"
 
